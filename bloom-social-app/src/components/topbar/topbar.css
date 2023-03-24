@@ -57,11 +57,11 @@
 
 .topbarLinks{
     color: white;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .topbarLink{   
-    margin-right: 10px;
+    margin-right: 15px;
     cursor: pointer;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .topbarIcon {
-  margin-right: 10px;
+  margin-right: 15px;
   color: white;
   cursor: pointer;
   position : relative;
@@ -81,7 +81,7 @@
 .topbarIconBadge {
     width: 15px;
     height: 15px;    
-    background-color: red;
+    background-color: #c70000;
     border-radius: 50%;
     position: absolute;
     top:-5px;
