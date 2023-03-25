@@ -1,7 +1,7 @@
 .topbarContainer {
   height: 60px;
   width: 100%;
-  background-color: #5A189A;
+  background-color: #457B9D;
   display: flex;
   align-items: center;
 }
@@ -81,7 +81,7 @@
 .topbarIconBadge {
     width: 15px;
     height: 15px;    
-    background-color: #c70000;
+    background-color: #E63946;
     border-radius: 50%;
     position: absolute;
     top:-5px;
