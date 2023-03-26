@@ -11,8 +11,11 @@ import {
 } from "@mui/icons-material";
 import React from "react";
 import "./sidebar.css";
+import {Users} from '../../dummyData'
+import CloseFriend from "../closeFriend/CloseFriend";
 
 export default function Sidebar() {
+  const Friends =  Users.filter( u => u.id !==1)
   return (
     <div className="sidebarContainer">
       <div className="sidebarWrapper">
@@ -57,110 +60,9 @@ export default function Sidebar() {
         <button className="sidebarButton">Show More</button>
         <hr className="lineSeperator" />
         <ul className="friendList">
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />            
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />            
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />            
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
-          <li className="friendListItem">
-            <img
-              src="/assets/person/2.jpg"
-              alt=""
-              className="frientListItemImg"
-            />            
-            <span className="frientListItemName">Jane Doe</span>
-          </li>
+              {Friends.map(user => (
+                <CloseFriend key={user.id} user ={user}/>
+              ))}    
         </ul>
       </div>
     </div>

@@ -1,7 +1,10 @@
 import React from "react";
 import "./rightbar.css";
+import { Users } from "../../dummyData";
+import OnlineFriend from "../onlineFriend/OnlineFriend";
 
 export default function Rightbar() {
+  const onlineFriends = Users.filter((u) => u.id % 2 === 0);
   return (
     <div className="rightbarContainer">
       <div className="rightbarWrapper">
@@ -16,41 +19,9 @@ export default function Rightbar() {
         <div className="rightbarFriendContainer">
           <div className="rightbarFriendHeader">Online Friends</div>
           <ul className="rightbarFriendList">
-            <li className="rightbarFriend">
-              <div className="rightbarFriendImgContainer">
-                <img src="assets/person/3.jpg" alt="" className="rightbarFriendImage" />
-                <span className="rightbarFriendOnlineBadge"></span>
-              </div>
-              <div className="rightbarFriendname">Brenda Woods</div>
-            </li>
-            <li className="rightbarFriend">
-              <div className="rightbarFriendImgContainer">
-                <img src="assets/person/3.jpg" alt="" className="rightbarFriendImage" />
-                <span className="rightbarFriendOnlineBadge"></span>
-              </div>
-              <div className="rightbarFriendname">Brenda Woods</div>
-            </li>
-            <li className="rightbarFriend">
-              <div className="rightbarFriendImgContainer">
-                <img src="assets/person/3.jpg" alt="" className="rightbarFriendImage" />
-                <span className="rightbarFriendOnlineBadge"></span>
-              </div>
-              <div className="rightbarFriendname">Brenda Woods</div>
-            </li>
-            <li className="rightbarFriend">
-              <div className="rightbarFriendImgContainer">
-                <img src="assets/person/3.jpg" alt="" className="rightbarFriendImage" />
-                <span className="rightbarFriendOnlineBadge"></span>
-              </div>
-              <div className="rightbarFriendname">Brenda Woods</div>
-            </li>
-            <li className="rightbarFriend">
-              <div className="rightbarFriendImgContainer">
-                <img src="assets/person/3.jpg" alt="" className="rightbarFriendImage" />
-                <span className="rightbarFriendOnlineBadge"></span>
-              </div>
-              <div className="rightbarFriendname">Brenda Woods</div>
-            </li>
+            {onlineFriends.map((u) => (
+              <OnlineFriend key={u.id} user={u} />
+            ))}
           </ul>
         </div>
       </div>
