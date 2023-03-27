@@ -6,6 +6,7 @@
     border-radius: 10px;
     font-size: 18px; 
     border: none;
+    cursor: pointer;
 }
 
 .loginCreateAccount {  
@@ -16,5 +17,6 @@
     border-radius: 10px;
     font-size: 18px; 
     margin:auto;
-    border:none
+    border:none;
+    cursor: pointer;
 }
