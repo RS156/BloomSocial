@@ -12,7 +12,7 @@ import {
 import React from "react";
 import "./sidebar.css";
 import {Users} from '../../dummyData'
-import CloseFriend from "../closeFriend/CloseFriend";
+import CloseFriend from "./CloseFriend";
 
 export default function Sidebar() {
   const Friends =  Users.filter( u => u.id !==1)

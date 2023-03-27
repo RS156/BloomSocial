@@ -1,0 +1,26 @@
+.userInforHeader{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.userInfoList{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.userInfoItem {
+    margin-top: 10px;
+}
+
+.userInfoKey{
+    margin-right: 15px;
+    font-weight: 500;
+    color: grey;
+    font-size: 18px;
+}
+
+.userInfoValue{
+    font-weight: 300;
+    font-size: 18px;
+}

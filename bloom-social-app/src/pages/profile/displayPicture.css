@@ -1,0 +1,41 @@
+
+.displayWallpaper {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.displayImagesContainer{
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.displayProfilePhoto {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;  
+    top: 225px;   
+}
+
+.displayNameContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.displayName{
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.displayNameDesc{
+    font-weight: 300;
+    font-size: 18px;
+}

@@ -1,0 +1,16 @@
+.rightbarBirthdayContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.rightbarBirthayImg {
+    width: 70px;
+    height: 70px;
+    margin-right: 15px;
+}
+.rightbarBrthdayText{
+    font-weight: 300;
+    font-size: 17px;
+}
+
