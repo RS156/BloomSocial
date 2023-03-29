@@ -7,7 +7,7 @@ import LoginInput from '../../components/loginLayout/LoginInput'
 export default function Signup() {
   return (
     <LoginLayout>
-      <div className="loginForm">
+      <div className="signupForm">
         <LoginInput placeholder="Username" />
         <LoginInput placeholder="Email" />
         <LoginInput placeholder="Password" />
