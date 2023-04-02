@@ -1,0 +1,56 @@
+GET http://localhost:3001/api/users
+
+###
+POST http://localhost:3001/api/auth/register
+Content-Type: application/json
+ 
+ {
+    "username":"Rishabh",
+    "email": "rishabh@test.com",
+    "password": "password"
+ }
+
+###
+POST http://localhost:3001/api/auth/login
+Content-Type: application/json
+ 
+{
+    "email": "test@test.com", 
+    "password": "password"
+}
+
+###
+GET http://localhost:3001/api/users/642854eb7fcc2203223d620e
+
+###
+PUT http://localhost:3001/api/users/6428eee43f93eb4cbaecd578
+Content-Type: application/json
+ 
+ {
+    "userId" : "6428ee9b2f93eb4cbaecd571", 
+    "isAdmin": true
+ }
+
+###
+DELETE http://localhost:3001/api/users/642854eb7fcc2203223d620e
+Content-Type: application/json
+ 
+ {
+    "userId" : "642854eb7fcc2203223d620e"
+ }
+
+### 
+PUT http://localhost:3001/api/users/6428eee42f93eb4cbaecd578/follow
+Content-Type: application/json
+ 
+ {
+    "userId" : "6428ee9b2f93eb4cbaecd571"
+ }
+
+### 
+PUT http://localhost:3001/api/users/6428eee42f93eb4cbaecd578/unfollow
+Content-Type: application/json
+ 
+ {
+    "userId" : "6428ee9b2f93eb4cbaecd571"
+ }

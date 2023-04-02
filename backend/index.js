@@ -6,8 +6,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const middleware = require('./utils/middleware')
-const userRouter = require("./controllers/user");
+const usersRouter = require("./controllers/user");
 const authRouter = require('./controllers/auth')
+const postsRouter = require('./controllers/posts')
 
 dotenv.config()
 mongoose.connect(process.env.MONGO_URL).then(_ =>  {
@@ -21,13 +22,11 @@ app.use(cors());
 app.use(helmet());
 
 app.use(morgan("common"));
-app.use("/api/users", userRouter);
-app.use("/api/auth", authRouter)
-
-
-
-
+app.use("/api/users", usersRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/posts", postsRouter);
 app.use(middleware.unknownEndpoint)
+app.use(middleware.errorHandler)
 
 const PORT = 3001;
 app.listen(PORT, () => {

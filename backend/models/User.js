@@ -30,14 +30,31 @@ const userSchema = new mongoose.Schema({
     type: Array,
     default: []
   },
-  following:{
+  followings:{
     type: Array,
     default: []
   },
   isAdmin:{
     type: Boolean,
     default: false
-  }
+  },
+  desc:{
+    type: String,
+    default: ''
+  },
+  City:{
+    type: String,
+    default: ''
+  },
+  from:{
+    type: String,
+    default: ''
+  },
+  relationship:{
+    type: String,
+    enum:['Single', 'In a relationship', 'Not disclosed' ],
+    default: 'Not disclosed'
+  },
 }, {
   timestamps: true
 });
