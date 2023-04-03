@@ -9,6 +9,10 @@
     cursor: pointer;
 }
 
+.loginButton:disabled {
+    cursor: not-allowed;
+}
+
 .loginCreateAccount {  
     height: 50px;
     width: 65%;
@@ -20,3 +24,14 @@
     border:none;
     cursor: pointer;
 }
+
+.loginCreateAccount:disabled {
+    cursor: not-allowed;
+}
+
+.loginLoadingCircle {
+    color: white !important;
+    width: 25px !important;
+    height: 25px !important;
+}
+

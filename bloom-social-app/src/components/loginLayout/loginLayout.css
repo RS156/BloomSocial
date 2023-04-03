@@ -35,3 +35,16 @@
 .loginRight{
     width: 400px;
 }
+
+.userNameInput {
+    height: 50px;    
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding-left: 20px;
+    font-size: 18px;   
+}
+
+.userNameInput:focus{
+    outline: none;
+}
