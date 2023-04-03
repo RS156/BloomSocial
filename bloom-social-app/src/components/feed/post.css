@@ -17,6 +17,11 @@
 
 .postProfile {
   display: flex;
+  align-items: center;  
+}
+
+.postProfileLink{
+  display: flex;
   align-items: center;
 }
 

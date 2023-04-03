@@ -79,8 +79,8 @@ router.put("/:id/like", async (req, res) => {
 });
 
 // get timeline posts
-router.get("/timeline/all", async (req, res) => {
-    const user = await User.findById(req.body.userId)
+router.get("/timeline/:userId", async (req, res) => {
+    const user = await User.findById(req.params.userId)
     if(!user){
         return res.status(401).json({ error: "user not found" });
     }
@@ -92,5 +92,17 @@ router.get("/timeline/all", async (req, res) => {
     console.log(friendPosts);
     res.status(200).json(posts.concat(...friendPosts));
   });
+
+// get all posts of user
+router.get("/profile/:username", async (req, res) => {
+  const user = await User.findOne({username : req.params.username})
+  
+  if(!user){
+      return res.status(401).json({ error: "user not found" });
+  }
+  const posts = await Post.find({userId: user.id});    
+  
+  res.status(200).json(posts);
+});
 
 module.exports = router;

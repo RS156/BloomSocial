@@ -3,14 +3,20 @@ const User = require('../models/User')
 
 
 //get user
-router.get('/:id', async (req, res) => {
-  const user = await User.findById(req.params.id)
+router.get('/', async (req, res) => {
+  const username = req.query.username
+  const id = req.query.id 
+  const user = username
+  ? await User.findOne({username})
+  : id
+  ? await User.findById(id)
+  : await User.find({})
   res.status(200).json(user)
 })
 //update a specific user
 router.put('/:id', async (req, res) => {
   const user = await User.findById(req.params.id)
-  if(req.params.id !== req.body.userId || user.isAdmin)
+  if(req.params.id !== req.body.userId || !user.isAdmin)
   {
     return res.status(401).send('error : "User unauthorized to update"')
   }
@@ -79,9 +85,5 @@ router.put('/:id/unfollow', async (req, res) => {
   res.status(200).json(currentUser)
 })
 
-router.get('/', async (req, res) => {
-  const users = await User.find({})
-  res.status(200).json(users)
-})
 
   module.exports = router

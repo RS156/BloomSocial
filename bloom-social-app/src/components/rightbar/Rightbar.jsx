@@ -6,7 +6,7 @@ import Birthday from "./Birthday";
 import UserInfo from "./UserInfo";
 import UserFriend from "./UserFriend";
 
-export default function Rightbar({profile}) {
+export default function Rightbar({profile, user}) {
   const onlineFriends = Users.filter((u) => u.id % 2 === 0);
   const followingFriends =  Users.filter( u => u.id !==1)
   const HomeRightBar = () => (
@@ -26,7 +26,7 @@ export default function Rightbar({profile}) {
   const ProfileRightBar = () => {
     return (
     <>
-    <UserInfo />
+    <UserInfo user={user}/>
     <div className="userFollowing">
       <h4 className="userFollowingHeader">User Friends     
       </h4>     

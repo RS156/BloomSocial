@@ -23,12 +23,13 @@ Content-Type: application/json
 GET http://localhost:3001/api/users/642854eb7fcc2203223d620e
 
 ###
-PUT http://localhost:3001/api/users/6428eee43f93eb4cbaecd578
+PUT http://localhost:3001/api/users/6428eee42f93eb4cbaecd578
 Content-Type: application/json
  
  {
-    "userId" : "6428ee9b2f93eb4cbaecd571", 
-    "isAdmin": true
+    "userId" : "6428eee42f93eb4cbaecd578", 
+    "City": "Mumbai",
+    "from":"India"
  }
 
 ###

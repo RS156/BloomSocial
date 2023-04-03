@@ -1,20 +1,21 @@
 import React from "react";
 import "./displayPicture.css";
+const PF =process.env.REACT_APP_PUBLIC_FOLDER
 
-export default function DisplayPicture() {
+export default function DisplayPicture({user}) {
   return (
     <div className="displayContainer">
       <div className="displayImagesContainer">
-        <img src="./assets/post/10.jpg" alt="" className="displayWallpaper" />
+        <img src={user.coverPicture || `${PF}/assets/no_cover.png`} alt="" className="displayWallpaper" />
         <img
-          src="./assets/person/1.jpg"
+          src={user.profilePicture || `${PF}/assets/no_avatar.png`}
           alt=""
           className="displayProfilePhoto"
         />
       </div>
       <div className="displayNameContainer">
-        <h4 className="displayName">Tyrell Atkinson</h4>
-        <div className="displayNameDesc">Hello my friends!</div>
+        <h4 className="displayName">{user.username}</h4>
+        <div className="displayNameDesc">{user.desc}</div>
       </div>
     </div>
   );
