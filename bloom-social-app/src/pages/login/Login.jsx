@@ -19,7 +19,6 @@ export default function Login() {
       },
       dispatch
     );
-    console.log(user);
   };
   return (
     <LoginLayout>
@@ -31,6 +30,7 @@ export default function Login() {
             type="email"
             required
             ref={email}
+            defaultValue='john@test.com'
           />
           <input
             className="userNameInput"
@@ -38,11 +38,14 @@ export default function Login() {
             type="password"
             required
             ref={password}
+            defaultValue='password'
           />
           <LoginButton text="Log In" type="submit" isLoading={isFetching} />
         </form>
-        <div className="loginForgotPassword">Forgot Password?</div>
-        <LoginButton text="Create a New Account" final isLoading={isFetching} />
+        <div className="loginForgotPassword">Forgot Password?</div>        
+        <LoginButton text="Create a New Account" final isLoading={isFetching} to='/signup'/>
+        
+        
       </div>
     </LoginLayout>
   );
