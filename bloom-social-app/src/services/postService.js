@@ -11,4 +11,14 @@ const baseUrl = `${process.env.REACT_APP_API_URL}/posts`
    return response.data
 }
 
- export default {getTimelinePosts, getProfilePosts}
+const postLike =  async (post, userId) =>{
+   const response = await axios.put(`${baseUrl}/${post.id}/like`, {userId})
+   return response.data
+}
+
+const sharePost = async (post) =>{
+   const response = await axios.post(`${baseUrl}`, post)
+   return response.data
+}
+
+ export default {getTimelinePosts, getProfilePosts, postLike, sharePost}

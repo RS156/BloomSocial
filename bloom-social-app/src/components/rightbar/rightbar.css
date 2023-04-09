@@ -33,4 +33,23 @@
     justify-content: space-between;
 }
 
+.rightBarFollowButton {
+    display: flex;
+    align-items: center;
+    font-size: 18px!important;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: white;
+    background-color: #457B9D ;
+    border-radius: 6px;
+    border-style: none;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.followIcon{
+    font-size: 18px!important;
+    font-weight: 500!important;
+}
+
 

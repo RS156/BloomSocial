@@ -65,14 +65,14 @@ router.put("/:id/like", async (req, res) => {
   if (!user) {
     return res.status(404).json({ error: "User not found" });
   }
-  const post = await Post.findByIdAndUpdate(req.params.id);
+  const post = await Post.findById(req.params.id);
   if (!post) {
     return res.status(404).json({ error: "post not found" });
   }
   if (post.likes.includes(req.body.userId)) {
     post.likes.pull(req.body.userId);
   } else {
-    post.likes.pull(req.body.userId);
+    post.likes.push(req.body.userId);
   }
   await post.save();
   res.status(200).json(post);

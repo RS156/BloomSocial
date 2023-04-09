@@ -9,13 +9,17 @@ import {
   WorkOutline,
   Event,
 } from "@mui/icons-material";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./sidebar.css";
-import {Users} from '../../dummyData'
 import CloseFriend from "./CloseFriend";
+import { AuthContext } from "../../contexts/AuthContext";
+import useFriends from "../../hooks/useFriends";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
-  const Friends =  Users.filter( u => u.id !==1)
+  const {user} = useContext(AuthContext)
+  const {friends } = useFriends(user)
+
   return (
     <div className="sidebarContainer">
       <div className="sidebarWrapper">
@@ -60,8 +64,10 @@ export default function Sidebar() {
         <button className="sidebarButton">Show More</button>
         <hr className="lineSeperator" />
         <ul className="friendList">
-              {Friends.map(user => (
-                <CloseFriend key={user.id} user ={user}/>
+              {friends.map(user => (<Link key={user.id} to={`/profile/${user.username}`}>
+                <CloseFriend user ={user}/>
+              </Link>
+                
               ))}    
         </ul>
       </div>

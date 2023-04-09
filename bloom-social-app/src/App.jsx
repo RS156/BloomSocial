@@ -9,8 +9,7 @@ import { AuthContext } from "./contexts/AuthContext";
 
 function App() {
   const {user} =useContext(AuthContext)
-  const LoginNavigation= () =>{
-    console.log('in navigation',user);
+  const LoginNavigation= () =>{  
 return user? <Navigate replace to='/'/>: <Login />
   }
   return (

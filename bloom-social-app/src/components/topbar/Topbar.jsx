@@ -51,7 +51,7 @@ export default function Topbar() {
             src={
               user?.profilePicture
                 ? user.profilePicture
-                : `${PF}/assets/no_avatar.png`
+                : `${PF}assets/no_avatar.png`
             }
             alt=""
             className="topbarImage"

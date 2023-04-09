@@ -3,10 +3,9 @@ import './userFriend.css'
 const PF =process.env.REACT_APP_PUBLIC_FOLDER
 
 export default function UserFriend({user}) {
-  console.log(user);
     return (
       <div className="userFollowingItem">
-        <img src={`${PF}/${user.profilePicture}`} alt="" className="userFollowingImg" />
+        <img src={user?.profilePicture? `${PF}/${user.profilePicture}` : PF+'assets/no_avatar.png'} alt="" className="userFollowingImg" />
         <div className="userFollowingName">{user.username}</div>
       </div>
     )

@@ -55,3 +55,6 @@ Content-Type: application/json
  {
     "userId" : "6428ee9b2f93eb4cbaecd571"
  }
+
+###
+GET http://localhost:3001/api/users/6428ee9b2f93eb4cbaecd571/friends

@@ -10,14 +10,14 @@ import { useEffect, useState } from "react";
 
 export default function Profile() {
   const username = useParams().username 
-  const [user, setUser] =useState([])
+  const [user, setUser] =useState({})
   useEffect(()=>{
-    const getAllPosts = async ()=>{
+    const getAllUser = async ()=>{
       const data = await userService.getByUsername(username)          
       setUser(data)
     }
-    getAllPosts()   
-  },[])
+    getAllUser()   
+  },[username])
   return (
     <>
       <Topbar />

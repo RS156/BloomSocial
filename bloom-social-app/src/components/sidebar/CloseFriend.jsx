@@ -6,7 +6,7 @@ export default function CloseFriend({user}) {
   return (
     <li className="friendListItem">
     <img
-      src={`${PF}/${user.profilePicture}`}
+      src={user.profilePicture?`${PF}${user.profilePicture}`:`${PF}assets/no_avatar.png`}
       alt=""
       className="frientListItemImg"
     />

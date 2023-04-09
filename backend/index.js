@@ -9,6 +9,8 @@ const middleware = require('./utils/middleware')
 const usersRouter = require("./controllers/user");
 const authRouter = require('./controllers/auth')
 const postsRouter = require('./controllers/posts')
+const uploadRouter = require('./controllers/upload')
+const path=require('path')
 
 dotenv.config()
 mongoose.connect(process.env.MONGO_URL).then(_ =>  {
@@ -17,6 +19,7 @@ mongoose.connect(process.env.MONGO_URL).then(_ =>  {
 
 const app = express();
 app.use(express.json());
+app.use('/images', express.static(path.join(__dirname, 'uploads')))
 
 app.use(cors());
 app.use(helmet());
@@ -25,6 +28,8 @@ app.use(morgan("common"));
 app.use("/api/users", usersRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postsRouter);
+app.use("/api/upload", uploadRouter);
+
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 

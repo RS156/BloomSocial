@@ -39,6 +39,20 @@ router.delete('/:id', async (req, res) => {
   res.status(204).end()
 })
 
+//get user friends 
+router.get('/:id/friends', async (req, res) => {
+  const id = req.params.id
+  const user = await User.findById(id)
+  if(!user)
+  {
+    return res.status(400).send('error : "User not found"')
+  } 
+  const userFriends = await Promise.all(user.followings.map((friendId) =>{
+    return User.findById(friendId)
+  }))
+  res.status(200).json(userFriends)
+})
+
 //follow a user
 router.put('/:id/follow', async (req, res) => {  
   if(req.params.id === req.body.userId)
