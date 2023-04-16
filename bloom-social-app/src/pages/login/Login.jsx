@@ -30,7 +30,7 @@ export default function Login() {
             type="email"
             required
             ref={email}
-            defaultValue='john@test.com'
+            defaultValue='tyrell@test.com'
           />
           <input
             className="userNameInput"
@@ -38,7 +38,7 @@ export default function Login() {
             type="password"
             required
             ref={password}
-            defaultValue='password'
+            defaultValue='Password1'
           />
           <LoginButton text="Log In" type="submit" isLoading={isFetching} />
         </form>

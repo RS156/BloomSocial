@@ -10,6 +10,7 @@ import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import uploadService from "../../services/uploadService";
 import postService from "../../services/postService";
+import { Link } from "react-router-dom";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 export default function Share() {
@@ -28,25 +29,27 @@ export default function Share() {
         newPost.img = res.filename;
       }
       if (text) {
-        newPost.desc = text
+        newPost.desc = text;
       }
-      await postService.sharePost(newPost)
-      window.location.reload()
+      await postService.sharePost(newPost);
+      window.location.reload();
     }
-    
   };
   return (
     <form className="shareContainer" onSubmit={handleSubmit}>
       <div className="sharePost">
-        <img
-          src={
-            user.profilePicture
-              ? `${PF}${user.profilePicture}`
-              : `${PF}assets/no_avatar.png`
-          }
-          alt=""
-          className="profilePhoto"
-        />
+        <Link to={`profile/${user.username}`}>
+          <img
+            src={
+              user.profilePicture
+                ? `${PF}${user.profilePicture}`
+                : `${PF}assets/no_avatar.png`
+            }
+            alt=""
+            className="profilePhoto"
+          />
+        </Link>
+
         <input
           placeholder={`What's in your mind ${user.username}?`}
           className="sharePostinput"
@@ -57,9 +60,12 @@ export default function Share() {
       {file && (
         <div className="shareImgContainer">
           <img src={URL.createObjectURL(file)} alt="" className="shareImg" />
-          <Cancel className="cancelIcon" onClick={ e => {
-            setFile(null)
-          }}/>
+          <Cancel
+            className="cancelIcon"
+            onClick={(e) => {
+              setFile(null);
+            }}
+          />
         </div>
       )}
       <div className="shareBottom">

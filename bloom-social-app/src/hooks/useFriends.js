@@ -1,17 +1,19 @@
-import { useEffect, useState } from "react"
-import userService from "../services/userService"
+import { useEffect, useState } from "react";
+import userService from "../services/userService";
 
-const useFriends = (user)=>{
-    const [friends, setFriends] = useState([])
-    useEffect(()=>{
-        const getUserFriends = async ()=>{
-          const userFriends = await userService.getUserFriends(user.id)
-          setFriends(userFriends)          
-        }
-         getUserFriends()    
-      }, [user])
+const useFriends = (user) => {
+  const [friends, setFriends] = useState([]);
+  useEffect(() => {
+    const getUserFriends = async () => {
+      if (user?.id) {        
+        const userFriends = await userService.getUserFriends(user?.id);
+        setFriends(userFriends);
+      }
+    };
+    getUserFriends();
+  }, [user]);
 
-      return{friends, setFriends}
-}
+  return { friends, setFriends };
+};
 
-export default useFriends
+export default useFriends;

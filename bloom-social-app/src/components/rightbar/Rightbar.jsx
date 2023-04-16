@@ -34,12 +34,13 @@ export default function Rightbar({ profile, user }) {
     );
   };
   const ProfileRightBar = () => {
+    
     const { user: currentUser, dispatch } = useContext(AuthContext);
-    const isCurrentUser = currentUser.id === user.id;
-    const [isFollowing,setIsFollowing] = useState(currentUser.followings.includes(user.id));
+    const isCurrentUser = currentUser?.id === user.id;
+    const [isFollowing,setIsFollowing] = useState(currentUser?.followings.includes(user.id));
     const { friends } = useFriends(user);
     useEffect(()=>{
-      setIsFollowing(currentUser.followings.includes(user.id))
+      setIsFollowing(currentUser?.followings.includes(user.id))
     },[currentUser, user])
     const handleFollow = async ()=>{
       if(isFollowing){

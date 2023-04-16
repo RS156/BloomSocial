@@ -10,6 +10,7 @@ const usersRouter = require("./controllers/user");
 const authRouter = require('./controllers/auth')
 const postsRouter = require('./controllers/posts')
 const uploadRouter = require('./controllers/upload')
+const testingRouter = require('./controllers/testing')
 const path=require('path')
 
 dotenv.config()
@@ -29,6 +30,7 @@ app.use("/api/users", usersRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postsRouter);
 app.use("/api/upload", uploadRouter);
+app.use("/api/testing", testingRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

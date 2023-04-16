@@ -18,6 +18,7 @@ export default function Profile() {
     }
     getAllUser()   
   },[username])
+  console.log('profile user', user);
   return (
     <>
       <Topbar />
@@ -26,7 +27,7 @@ export default function Profile() {
         <div className="profileRight">
             <DisplayPicture user={user}/>
           <div className="profileRightContainer">
-            <Feed username={username}/>
+            <Feed profile username={username}/>
             <Rightbar profile user={user}/>
           </div>
         </div>
