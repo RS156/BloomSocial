@@ -21,7 +21,15 @@ mongoose.connect(process.env.MONGO_URL).then(_ =>  {
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(helmet());
+app.use(helmet({ crossOriginEmbedderPolicy: false, originAgentCluster: true }));
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https: data: blob:"],
+    },
+  })
+);
 app.use(morgan("common"));
 app.use(express.static('build'))
 app.use('/images', express.static(path.join(__dirname, 'uploads')))
