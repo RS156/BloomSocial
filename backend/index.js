@@ -20,12 +20,11 @@ mongoose.connect(process.env.MONGO_URL).then(_ =>  {
 
 const app = express();
 app.use(express.json());
-app.use('/images', express.static(path.join(__dirname, 'uploads')))
-
 app.use(cors());
 app.use(helmet());
-
 app.use(morgan("common"));
+app.use(express.static('build'))
+app.use('/images', express.static(path.join(__dirname, 'uploads')))
 app.use("/api/users", usersRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postsRouter);
