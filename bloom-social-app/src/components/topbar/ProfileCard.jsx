@@ -4,6 +4,7 @@ import { ChangeCircle, Logout, SettingsBackupRestore } from "@mui/icons-material
 import { AuthContext } from "../../contexts/AuthContext";
 import { LOGOUT } from "../../contexts/AuthActions";
 import { Link, useNavigate } from "react-router-dom";
+import resetService from "../../services/resetService";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -15,8 +16,15 @@ export default function ProfileCard({ user, profileRef }) {
     navigate('/login')
   }
 
-  function handleSettingsClick() {
-    // handle settings logic
+  async function  handleResetClick() {
+    // handle reset logic
+    const confirmed = window.confirm('Are you sure you reset all the data to default? This will logout the user and reset all the posts and images.');
+    if (confirmed) {
+      // Perform the action here
+      await resetService.resetData()
+      dispatch(LOGOUT())
+      navigate('/login')
+    }
   }
 
   return (
@@ -38,7 +46,7 @@ export default function ProfileCard({ user, profileRef }) {
         
       
 
-      <div className="profileCardItem">
+      <div className="profileCardItem" onClick={handleResetClick}>
         <SettingsBackupRestore className="profileCardItemIcon"/>
         <span>Reset to Default</span>
       </div>
